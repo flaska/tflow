@@ -2,10 +2,10 @@ import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 
-import get_data
-(train_images, train_labels), (test_images, test_labels) = get_data.load_data()
+import data
+import model
 
-
+(train_images, train_labels), (test_images, test_labels) = data.get_data()
 
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
@@ -19,3 +19,6 @@ for i in range(25):
     plt.imshow(train_images[i], cmap=plt.cm.binary)
     plt.xlabel(class_names[train_labels[i]])
 plt.show()
+
+model = model.get_model()
+model.fit(train_images, train_labels, epochs=5)
