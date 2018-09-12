@@ -17,4 +17,4 @@ print('Test accuracy:', test_acc)
 
 predictions = model.predict(test_images)
 
-display.plot_results(predictions, test_images, test_labels)
+display.plot_results(predictions, test_images, test_labels, class_names)
